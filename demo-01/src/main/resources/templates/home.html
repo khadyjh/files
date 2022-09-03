@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+<h1> hello from home </h1>
+<ul th:each="document:${documentList}">
+    <div>
+      <a th:href="@{'/files/download?name='+${document.name}}"> [[${document.name}]]</a>
+    </div>
+
+</ul>
+<form action="/files/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" required>
+    <button> upload pdf file </button>
+</form>
+
+</body>
+</html>

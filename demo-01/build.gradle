@@ -1,0 +1,62 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.2'
+	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '16'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	// https://mavenlibs.com/maven/dependency/com.amazonaws/aws-java-sdk-sns
+	implementation 'com.amazonaws:aws-java-sdk-sns:1.12.267'
+
+	// https://mavenlibs.com/maven/dependency/com.amazonaws/aws-java-sdk-core
+	implementation 'com.amazonaws:aws-java-sdk-core:1.12.267'
+
+	// https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-sqs
+	implementation 'com.amazonaws:aws-java-sdk-sqs:1.12.267'
+
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-graphql'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+
+	implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.837')
+	implementation 'com.amazonaws:aws-java-sdk-s3'
+
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+//	implementation 'org.springframework.cloud:spring-cloud-starter-aws'
+//	implementation 'org.springframework.cloud:spring-cloud-starter-aws-messaging'
+//	implementation 'org.springframework.cloud:spring-cloud-starter-aws-parameter-store-config'
+
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework:spring-webflux'
+//	testImplementation 'org.springframework.graphql:spring-graphql-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

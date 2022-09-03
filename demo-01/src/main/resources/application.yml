@@ -1,0 +1,13 @@
+cloud:
+  aws:
+    credentials:
+      access-key: AKIA2E4JETSQVVGAUBTJ
+      secret-key: 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
+    region:
+      static:  eu-west-1
+    stack:
+      auto: false
+
+application:
+  bucket:
+    name: khadyjh-java-test
